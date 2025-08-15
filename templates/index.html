@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>أسعار الذهب والدولار</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>أسعار اليوم</h1>
+        <div id="prices">
+            <div class="price-box">
+                <h2>الذهب (أونصة)</h2>
+                <p id="gold-price">--</p>
+            </div>
+            <div class="price-box">
+                <h2>الدولار (IQD)</h2>
+                <p id="usd-rate">--</p>
+            </div>
+        </div>
+        <p id="update-time">آخر تحديث: --</p>
+    </div>
+
+    <script>
+    function updatePrices() {
+        fetch('/api/prices')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('gold-price').textContent = data.gold_price;
+                document.getElementById('usd-rate').textContent = data.usd_iqd_rate;
+                document.getElementById('update-time').textContent = `آخر تحديث: ${data.timestamp}`;
+            });
+    }
+    
+    updatePrices();
+    setInterval(updatePrices, 60000);
+    </script>
+</body>
+</html>

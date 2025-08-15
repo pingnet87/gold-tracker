@@ -1,0 +1,4 @@
+flask==2.0.1 
+requests==2.26.0 
+python-nfc==1.0.4 
+ndeflib==0.3.3 

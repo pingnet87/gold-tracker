@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#prices {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.price-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 45%;
+}
+
+h1 {
+    color: #d4af37;
+}
+
+h2 {
+    color: #333;
+}
+
+#gold-price, #usd-rate {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+#update-time {
+    color: #666;
+    font-style: italic;
+}
