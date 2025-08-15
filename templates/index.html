@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>أسعار الذهب والدولار</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .price {
+            font-size: 24px;
+            color: gold;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>أسعار اليوم</h1>
-        <div id="prices">
-            <div class="price-box">
-                <h2>الذهب (أونصة)</h2>
-                <p id="gold-price">--</p>
-            </div>
-            <div class="price-box">
-                <h2>الدولار (IQD)</h2>
-                <p id="usd-rate">--</p>
-            </div>
-        </div>
-        <p id="update-time">آخر تحديث: --</p>
+    <h1>أسعار اليوم</h1>
+    
+    <div>
+        <h2>سعر الذهب (أونصة)</h2>
+        <div class="price" id="gold-price">--</div>
     </div>
+    
+    <div>
+        <h2>سعر الدولار (IQD)</h2>
+        <div class="price" id="usd-rate">--</div>
+    </div>
+    
+    <p id="update-time">آخر تحديث: --</p>
 
     <script>
-    function updatePrices() {
-        fetch('/api/prices')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('gold-price').textContent = data.gold_price;
-                document.getElementById('usd-rate').textContent = data.usd_iqd_rate;
-                document.getElementById('update-time').textContent = `آخر تحديث: ${data.timestamp}`;
-            });
-    }
-    
-    updatePrices();
-    setInterval(updatePrices, 60000);
+    // هذه البيانات ثابتة للبدء، يمكنك تغييرها لاحقاً
+    document.getElementById('gold-price').textContent = '1950.50';
+    document.getElementById('usd-rate').textContent = '1450.00';
+    document.getElementById('update-time').textContent = 'آخر تحديث: ' + new Date().toLocaleString();
     </script>
 </body>
 </html>
